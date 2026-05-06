@@ -6,9 +6,9 @@ class BurpExtender(IBurpExtender, IHttpListener):
     def registerExtenderCallbacks(self, callbacks):
         self._callbacks = callbacks
         self._helpers = callbacks.getHelpers()
-        callbacks.setExtensionName("BugForge Flag Catcher")
+        callbacks.setExtensionName("Flag Catcher")
         callbacks.registerHttpListener(self)
-        print("[Flag Catcher] Loaded - watching for bug{...} flags")
+        print("[Flag Catcher] Loaded - watching for flags")
     
     def processHttpMessage(self, toolFlag, messageIsRequest, messageInfo):
         if messageIsRequest:
@@ -20,7 +20,7 @@ class BurpExtender(IBurpExtender, IHttpListener):
                 return
             
             body = self._helpers.bytesToString(response)
-            flags = re.findall(r'bug\{[^}]+\}', body)
+            flags = re.findall(r'(?:bug|BUGFORGE|WEBVERSE|CTF)\{[^}]+\}', body, re.IGNORECASE)
             
             if flags:
                 messageInfo.setHighlight("red")
