@@ -1,6 +1,6 @@
 # BugForge Flag Catcher
 
-A Burp Suite extension that automatically detects and highlights Bugforge-style flags (`bug{...}`) in HTTP responses.
+A Burp Suite extension that automatically detects and highlights CTF flags in HTTP responses.
 
 ## Features
 
@@ -29,7 +29,7 @@ A Burp Suite extension that automatically detects and highlights Bugforge-style 
 
 ## Usage
 
-Once loaded, the extension runs automatically in the background. Any HTTP response containing a `bug{...}` flag will be:
+Once loaded, the extension runs automatically in the background. Any HTTP response containing a `bug or webverse{...}` flag will be:
 
 - Highlighted red in Burp's HTTP history
 - Annotated with a comment showing the flag value
