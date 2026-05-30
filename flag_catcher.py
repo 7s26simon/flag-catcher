@@ -22,8 +22,8 @@ class BurpExtender(IBurpExtender, IHttpListener):
             body = self._helpers.bytesToString(response)
             
             # Compiled regex covering all requested formats (case-insensitive flag enabled at the end)
-            # Formats included: bug, BUGFORGE, WEBVERSE, CTF, HTB, THM, PLab, flag, picoCTF, RM
-            pattern = r'(?:bug|BUGFORGE|WEBVERSE|CTF|HTB|THM|PLab|flag|picoCTF|RM)\{[^}]+\}'
+            # Formats included: bug, WEBVERSE, CTF, HTB, THM, PentesterLab, flag, picoCTF, RootMe
+            pattern = r'(?:bug|WEBVERSE|CTF|HTB|THM|PLab|flag|picoCTF|RM)\{\w+\}'
             flags = re.findall(pattern, body, re.IGNORECASE)
             
             if flags:
