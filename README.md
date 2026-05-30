@@ -1,11 +1,11 @@
-# BugForge Flag Catcher
+# CTF Flag Catcher
 
 A Burp Suite extension that automatically detects and highlights CTF flags in HTTP responses.
 
 ## Features
 
 - Passively monitors all HTTP responses through Burp Suite
-- Detects flags matching the pattern `bug{...}`
+- Detects flags matching the patterns of popular CTF platforms
 - Highlights matching requests **red** in the Proxy/HTTP history
 - Adds a comment to the request with the captured flag(s)
 - Prints found flags to the Burp extension output console
@@ -29,7 +29,7 @@ A Burp Suite extension that automatically detects and highlights CTF flags in HT
 
 ## Usage
 
-Once loaded, the extension runs automatically in the background. Any HTTP response containing a `bug or webverse{...}` flag will be:
+Once loaded, the extension runs automatically in the background. Any HTTP response containing a supported flag will be:
 
 - Highlighted red in Burp's HTTP history
 - Annotated with a comment showing the flag value
